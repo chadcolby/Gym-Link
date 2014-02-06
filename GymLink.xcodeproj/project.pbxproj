@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D44279918A426960093F273 /* BMWSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D44279818A426960093F273 /* BMWSignInViewController.m */; };
+		8D44279C18A42AC80093F273 /* BMWNewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D44279B18A42AC80093F273 /* BMWNewUserViewController.m */; };
+		8D59BCBF18A41D7E00867495 /* BMWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */; };
 		8D87CE5518A4174300B90378 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5418A4174300B90378 /* Foundation.framework */; };
 		8D87CE5718A4174300B90378 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5618A4174300B90378 /* CoreGraphics.framework */; };
 		8D87CE5918A4174300B90378 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5818A4174300B90378 /* UIKit.framework */; };
@@ -14,14 +17,21 @@
 		8D87CE6118A4174300B90378 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87CE6018A4174300B90378 /* main.m */; };
 		8D87CE6518A4174300B90378 /* BMWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87CE6418A4174300B90378 /* BMWAppDelegate.m */; };
 		8D87CE6818A4174300B90378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D87CE6618A4174300B90378 /* Main.storyboard */; };
-		8D87CE6B18A4174300B90378 /* BMWFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87CE6A18A4174300B90378 /* BMWFirstViewController.m */; };
-		8D87CE6E18A4174300B90378 /* BMWSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87CE6D18A4174300B90378 /* BMWSecondViewController.m */; };
 		8D87CE7018A4174300B90378 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D87CE6F18A4174300B90378 /* Images.xcassets */; };
 		8D87CE7718A4174300B90378 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE7618A4174300B90378 /* XCTest.framework */; };
 		8D87CE7818A4174300B90378 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5418A4174300B90378 /* Foundation.framework */; };
 		8D87CE7918A4174300B90378 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5818A4174300B90378 /* UIKit.framework */; };
 		8D87CE8118A4174300B90378 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D87CE7F18A4174300B90378 /* InfoPlist.strings */; };
 		8D87CE8318A4174300B90378 /* GymLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87CE8218A4174300B90378 /* GymLinkTests.m */; };
+		8DCBF26C18A41A21005B2A9D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF26B18A41A21005B2A9D /* Parse.framework */; };
+		8DCBF27518A41A7F005B2A9D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF26D18A41A7F005B2A9D /* AudioToolbox.framework */; };
+		8DCBF27618A41A7F005B2A9D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF26E18A41A7F005B2A9D /* CFNetwork.framework */; };
+		8DCBF27718A41A7F005B2A9D /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF26F18A41A7F005B2A9D /* libz.1.1.3.dylib */; };
+		8DCBF27818A41A7F005B2A9D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF27018A41A7F005B2A9D /* MobileCoreServices.framework */; };
+		8DCBF27918A41A7F005B2A9D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF27118A41A7F005B2A9D /* QuartzCore.framework */; };
+		8DCBF27A18A41A7F005B2A9D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF27218A41A7F005B2A9D /* Security.framework */; };
+		8DCBF27B18A41A7F005B2A9D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF27318A41A7F005B2A9D /* StoreKit.framework */; };
+		8DCBF27C18A41A7F005B2A9D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCBF27418A41A7F005B2A9D /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D44279718A426960093F273 /* BMWSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMWSignInViewController.h; path = ../BMWSignInViewController.h; sourceTree = "<group>"; };
+		8D44279818A426960093F273 /* BMWSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMWSignInViewController.m; path = ../BMWSignInViewController.m; sourceTree = "<group>"; };
+		8D44279A18A42AC80093F273 /* BMWNewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWNewUserViewController.h; sourceTree = "<group>"; };
+		8D44279B18A42AC80093F273 /* BMWNewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWNewUserViewController.m; sourceTree = "<group>"; };
+		8D59BCBD18A41D7E00867495 /* BMWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWHomeViewController.h; sourceTree = "<group>"; };
+		8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWHomeViewController.m; sourceTree = "<group>"; };
 		8D87CE5118A4174300B90378 /* GymLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D87CE5418A4174300B90378 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D87CE5618A4174300B90378 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,16 +62,21 @@
 		8D87CE6318A4174300B90378 /* BMWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMWAppDelegate.h; sourceTree = "<group>"; };
 		8D87CE6418A4174300B90378 /* BMWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMWAppDelegate.m; sourceTree = "<group>"; };
 		8D87CE6718A4174300B90378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8D87CE6918A4174300B90378 /* BMWFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMWFirstViewController.h; sourceTree = "<group>"; };
-		8D87CE6A18A4174300B90378 /* BMWFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMWFirstViewController.m; sourceTree = "<group>"; };
-		8D87CE6C18A4174300B90378 /* BMWSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMWSecondViewController.h; sourceTree = "<group>"; };
-		8D87CE6D18A4174300B90378 /* BMWSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMWSecondViewController.m; sourceTree = "<group>"; };
 		8D87CE6F18A4174300B90378 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D87CE7518A4174300B90378 /* GymLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D87CE7618A4174300B90378 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8D87CE7E18A4174300B90378 /* GymLinkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GymLinkTests-Info.plist"; sourceTree = "<group>"; };
 		8D87CE8018A4174300B90378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D87CE8218A4174300B90378 /* GymLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymLinkTests.m; sourceTree = "<group>"; };
+		8DCBF26B18A41A21005B2A9D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8DCBF26D18A41A7F005B2A9D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8DCBF26E18A41A7F005B2A9D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8DCBF26F18A41A7F005B2A9D /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		8DCBF27018A41A7F005B2A9D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8DCBF27118A41A7F005B2A9D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8DCBF27218A41A7F005B2A9D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8DCBF27318A41A7F005B2A9D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8DCBF27418A41A7F005B2A9D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +84,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DCBF27518A41A7F005B2A9D /* AudioToolbox.framework in Frameworks */,
+				8DCBF27618A41A7F005B2A9D /* CFNetwork.framework in Frameworks */,
+				8DCBF27718A41A7F005B2A9D /* libz.1.1.3.dylib in Frameworks */,
+				8DCBF27818A41A7F005B2A9D /* MobileCoreServices.framework in Frameworks */,
+				8DCBF27918A41A7F005B2A9D /* QuartzCore.framework in Frameworks */,
+				8DCBF27A18A41A7F005B2A9D /* Security.framework in Frameworks */,
+				8DCBF27B18A41A7F005B2A9D /* StoreKit.framework in Frameworks */,
+				8DCBF27C18A41A7F005B2A9D /* SystemConfiguration.framework in Frameworks */,
 				8D87CE5718A4174300B90378 /* CoreGraphics.framework in Frameworks */,
 				8D87CE5918A4174300B90378 /* UIKit.framework in Frameworks */,
+				8DCBF26C18A41A21005B2A9D /* Parse.framework in Frameworks */,
 				8D87CE5518A4174300B90378 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D44279E18A433780093F273 /* Sign In/Up */ = {
+			isa = PBXGroup;
+			children = (
+				8D44279718A426960093F273 /* BMWSignInViewController.h */,
+				8D44279818A426960093F273 /* BMWSignInViewController.m */,
+				8D44279A18A42AC80093F273 /* BMWNewUserViewController.h */,
+				8D44279B18A42AC80093F273 /* BMWNewUserViewController.m */,
+			);
+			name = "Sign In/Up";
+			sourceTree = "<group>";
+		};
 		8D87CE4818A4174200B90378 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +145,15 @@
 		8D87CE5318A4174300B90378 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DCBF26D18A41A7F005B2A9D /* AudioToolbox.framework */,
+				8DCBF26E18A41A7F005B2A9D /* CFNetwork.framework */,
+				8DCBF26F18A41A7F005B2A9D /* libz.1.1.3.dylib */,
+				8DCBF27018A41A7F005B2A9D /* MobileCoreServices.framework */,
+				8DCBF27118A41A7F005B2A9D /* QuartzCore.framework */,
+				8DCBF27218A41A7F005B2A9D /* Security.framework */,
+				8DCBF27318A41A7F005B2A9D /* StoreKit.framework */,
+				8DCBF27418A41A7F005B2A9D /* SystemConfiguration.framework */,
+				8DCBF26B18A41A21005B2A9D /* Parse.framework */,
 				8D87CE5418A4174300B90378 /* Foundation.framework */,
 				8D87CE5618A4174300B90378 /* CoreGraphics.framework */,
 				8D87CE5818A4174300B90378 /* UIKit.framework */,
@@ -118,10 +168,9 @@
 				8D87CE6318A4174300B90378 /* BMWAppDelegate.h */,
 				8D87CE6418A4174300B90378 /* BMWAppDelegate.m */,
 				8D87CE6618A4174300B90378 /* Main.storyboard */,
-				8D87CE6918A4174300B90378 /* BMWFirstViewController.h */,
-				8D87CE6A18A4174300B90378 /* BMWFirstViewController.m */,
-				8D87CE6C18A4174300B90378 /* BMWSecondViewController.h */,
-				8D87CE6D18A4174300B90378 /* BMWSecondViewController.m */,
+				8D59BCBD18A41D7E00867495 /* BMWHomeViewController.h */,
+				8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */,
+				8D44279E18A433780093F273 /* Sign In/Up */,
 				8D87CE6F18A4174300B90378 /* Images.xcassets */,
 				8D87CE5B18A4174300B90378 /* Supporting Files */,
 			);
@@ -255,10 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D59BCBF18A41D7E00867495 /* BMWHomeViewController.m in Sources */,
+				8D44279918A426960093F273 /* BMWSignInViewController.m in Sources */,
 				8D87CE6118A4174300B90378 /* main.m in Sources */,
-				8D87CE6E18A4174300B90378 /* BMWSecondViewController.m in Sources */,
+				8D44279C18A42AC80093F273 /* BMWNewUserViewController.m in Sources */,
 				8D87CE6518A4174300B90378 /* BMWAppDelegate.m in Sources */,
-				8D87CE6B18A4174300B90378 /* BMWFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +435,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chadcolby/Documents/Developer/iOS_B9/GymLink,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GymLink/GymLink-Prefix.pch";
 				INFOPLIST_FILE = "GymLink/GymLink-Info.plist";
@@ -398,6 +452,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chadcolby/Documents/Developer/iOS_B9/GymLink,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GymLink/GymLink-Prefix.pch";
 				INFOPLIST_FILE = "GymLink/GymLink-Info.plist";
@@ -467,6 +525,7 @@
 				8D87CE8818A4174300B90378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D87CE8918A4174300B90378 /* Build configuration list for PBXNativeTarget "GymLinkTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +534,7 @@
 				8D87CE8B18A4174300B90378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

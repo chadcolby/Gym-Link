@@ -7,12 +7,17 @@
 //
 
 #import "BMWAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation BMWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Parse setApplicationId:@"ErUpeRUaMLyZfPJPJx5tpDnBKeA7HLhDjFwthaaN"
+                  clientKey:@"oGk4h08ghV0sKg2ByW6j4NnqFCP8eeQ0W7pnrtM1"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return YES;
 }
 							
