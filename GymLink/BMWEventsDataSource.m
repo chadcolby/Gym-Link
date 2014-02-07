@@ -57,7 +57,6 @@
         } else {
             NSLog(@"count:%lu", objects.count);
             self.queryArray = objects;
-            NSLog(@"array: %@", self.queryArray);
         }
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshComplete" object:self];
@@ -102,7 +101,7 @@
     
     if (!self.queryArray) {
         
-        cell.textLabel.text = @"Needs Refreshing.";
+        cell.textLabel.text = @"";
         cell.detailTextLabel.text = @"";
 
     } else {
@@ -111,8 +110,8 @@
         cell.textLabel.text = [event objectForKey:@"eventTitle"];
         cell.detailTextLabel.text = [event objectForKey:@"onDay"];
         cell.textLabel.textColor = [UIColor redColor];
-
-        }
+        cell.detailTextLabel.textColor = [UIColor blueColor];
+    }
 
     return cell;
 }

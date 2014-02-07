@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="140" y="180"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Camera View Controller - Item-->
         <scene sceneID="07O-m4-8U3">
             <objects>
-                <viewController storyboardIdentifier="cameraVC" id="hRo-Si-fxr" customClass="BMWCameraViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraVC" extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="hRo-Si-fxr" customClass="BMWCameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="13O-sT-7d3"/>
                         <viewControllerLayoutGuide type="bottom" id="n1b-uY-S9o"/>
@@ -40,17 +40,39 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem width="130" style="plain" systemItem="fixedSpace" id="8lo-w3-UZY"/>
-                                    <barButtonItem systemItem="camera" id="ibn-yo-LUw"/>
+                                    <barButtonItem systemItem="camera" id="ibn-yo-LUw">
+                                        <connections>
+                                            <action selector="cameraPushed:" destination="hRo-Si-fxr" id="dkZ-GU-gr2"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="132" style="plain" systemItem="fixedSpace" id="Cvy-QT-ml3"/>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsR-92-BmM">
+                                <rect key="frame" x="20" y="92" width="280" height="280"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIm-Re-Ij0">
+                                <rect key="frame" x="20" y="380" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="useButtonPushed:" destination="hRo-Si-fxr" eventType="touchUpInside" id="KdF-gF-tgb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="JZ8-Mi-2Gr"/>
+                    <connections>
+                        <outlet property="imageTaken" destination="tsR-92-BmM" id="Xrt-bO-1fZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rht-X4-RQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="-1300"/>
+            <point key="canvasLocation" x="2122" y="-1300"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="G21-83-0mf">

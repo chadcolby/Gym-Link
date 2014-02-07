@@ -40,9 +40,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queryFinished:) name:@"refreshComplete" object:nil];
     [self makeUserPictureLookGood];
+    self.userPicture.userInteractionEnabled = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserPicture:) name:@"pictureUpdated" object:nil];
     
     [self createCameraViewController];
-    [self tapGestureSetup];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,13 +89,18 @@
 {
     self.cameraViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
     self.cameraViewController.view.backgroundColor = [UIColor lightGrayColor];
+    self.navigationController.navigationItem.hidesBackButton = YES;
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationItem.title = self.currentUser.username;
+    
+    [self tapGestureSetup];
     
 }
 
 - (void)tapGestureSetup
 {
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCameraController:)];
-    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.numberOfTapsRequired = 2;
     tapGesture.delegate = self;
     [self.userPicture addGestureRecognizer:tapGesture];
     
@@ -106,9 +114,18 @@
         self.cameraViewController.view.frame = self.view.frame;
         [self.view addSubview:self.cameraViewController.view];
         [self.cameraViewController didMoveToParentViewController:self];
-        NSLog(@"Double tap!");
     }
 }
+
+#pragma mark - User Picture Methods
+
+- (void)updateUserPicture:(NSNotification *)notification
+{
+    UIImage *updatedImage = [[UIImage alloc] initWithData:self.cameraViewController.picData scale:0.5f];
+    self.userPicture.image = updatedImage;
+}
+
+
 #pragma mark - IBActions
 
 - (IBAction)signOutPushed:(id)sender {
@@ -124,6 +141,7 @@
     }
 }
 
+#pragma mark - Update TableView Methods
 - (void)createRefreshControl
 {
     self.tableViewController.refreshControl = [UIRefreshControl new];
@@ -139,7 +157,6 @@
 
 - (void)queryFinished:(NSNotification *)notification
 {
-    NSLog(@"This is what was returned: %@", [notification name]);
     [self.tableViewController.refreshControl endRefreshing];
     [self.tableViewController.tableView reloadData];
 }

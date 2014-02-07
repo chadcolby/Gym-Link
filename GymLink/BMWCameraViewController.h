@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMWCameraViewController : UIViewController
+@interface BMWCameraViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageTaken;
+@property (strong, nonatomic) NSData *picData;
+
+- (IBAction)cameraPushed:(id)sender;
+- (IBAction)useButtonPushed:(id)sender;
+
 
 @end
