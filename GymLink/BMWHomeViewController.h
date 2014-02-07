@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "BMWEventsDataSource.h"
 
-@interface BMWHomeViewController : UIViewController <UITableViewDelegate>
+@interface BMWHomeViewController : UIViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, weak) BMWEventsDataSource *eventsTableDataSource;

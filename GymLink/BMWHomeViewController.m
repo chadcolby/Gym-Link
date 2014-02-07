@@ -7,12 +7,14 @@
 //
 
 #import "BMWHomeViewController.h"
+#import "BMWCameraViewController.h"
 
 @interface BMWHomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
 @property (strong, nonatomic) UITableViewController *tableViewController;
+@property (strong, nonatomic) BMWCameraViewController *cameraViewController;
 
 @end
 
@@ -37,7 +39,10 @@
     [self addChildViewController:self.tableViewController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queryFinished:) name:@"refreshComplete" object:nil];
+    [self makeUserPictureLookGood];
     
+    [self createCameraViewController];
+    [self tapGestureSetup];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,6 +68,11 @@
         [self performSegueWithIdentifier:@"pushToSignIn" sender:self];
     }
 }
+- (void)makeUserPictureLookGood
+{
+    self.userPicture.layer.masksToBounds = YES;
+    self.userPicture.layer.cornerRadius = self.userPicture.bounds.size.width / 2;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -70,6 +80,35 @@
 
 }
 
+#pragma mark - Add Camera VC
+
+- (void)createCameraViewController
+{
+    self.cameraViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
+    self.cameraViewController.view.backgroundColor = [UIColor lightGrayColor];
+    
+}
+
+- (void)tapGestureSetup
+{
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCameraController:)];
+    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.delegate = self;
+    [self.userPicture addGestureRecognizer:tapGesture];
+    
+}
+
+- (void)showCameraController:(UITapGestureRecognizer *)sender
+{
+
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        [self addChildViewController:self.cameraViewController];
+        self.cameraViewController.view.frame = self.view.frame;
+        [self.view addSubview:self.cameraViewController.view];
+        [self.cameraViewController didMoveToParentViewController:self];
+        NSLog(@"Double tap!");
+    }
+}
 #pragma mark - IBActions
 
 - (IBAction)signOutPushed:(id)sender {
@@ -107,11 +146,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PFObject *event = [self.eventsTableDataSource.self.queryArray objectAtIndex:indexPath.row];
-    NSString *detailsString = [[NSString alloc] initWithString:[event objectForKey:@"detailsKey"]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Details" message:detailsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-    [alert show];
-    
+    if ([self.eventsTableDataSource.self.queryArray count] == 0) {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.userInteractionEnabled = NO;
+    } else {
+        PFObject *event = [self.eventsTableDataSource.self.queryArray objectAtIndex:indexPath.row];
+        NSString *detailsString = [[NSString alloc] initWithString:[event objectForKey:@"detailsKey"]];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Details" message:detailsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 @end

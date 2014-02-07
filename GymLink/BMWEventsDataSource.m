@@ -103,11 +103,13 @@
     if (!self.queryArray) {
         
         cell.textLabel.text = @"Needs Refreshing.";
+        cell.detailTextLabel.text = @"";
 
     } else {
         
         PFObject *event = [self.queryArray objectAtIndex:indexPath.row];
         cell.textLabel.text = [event objectForKey:@"eventTitle"];
+        cell.detailTextLabel.text = [event objectForKey:@"onDay"];
         cell.textLabel.textColor = [UIColor redColor];
 
         }
