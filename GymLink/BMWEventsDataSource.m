@@ -20,9 +20,10 @@
     if (!self) {
         return nil;
     }
-
-    self.queryArray = [NSMutableArray new];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queryLatestEvents:) name:@"refreshRequested" object:nil];
+    
+    
     return self;
 }
 
@@ -40,19 +41,37 @@
 
 #pragma mark - Parse query 
 
-- (void)queryLatestEvents
+/*
+ This method is called by table view when it recieves the notification from 'pull to refresh'
+*/
+- (void)queryLatestEvents:(NSNotification *)notification
 {
-    PFQuery *query = [PFQuery queryWithClassName:PF_CLASS_NAME];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"Got new events! %@", objects);
+    NSLog(@"LOGGED: %@", [notification name]);
+    self.queryArray = [NSArray new];
+    
+    PFQuery *queryNewestEvents = [PFQuery queryWithClassName:@"newEvent"];
+    queryNewestEvents.limit = 6;
+    [queryNewestEvents findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!objects) {
+            NSLog(@"Error");
         } else {
-            NSLog(@"Error: %@, %@", error, [error userInfo]);
+            NSLog(@"count:%lu", objects.count);
+            self.queryArray = objects;
+            NSLog(@"array: %@", self.queryArray);
         }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshComplete" object:self];
     }];
+
 }
 
-
+- (NSArray *)sortQueryResultsByDayOfWeek
+{
+    NSSortDescriptor *dayDescriptor = [[NSSortDescriptor alloc] initWithKey:@"onDay" ascending:YES];
+    NSArray *sortedDescriptors = @[dayDescriptor];
+    
+    return sortedDescriptors;
+}
 
 #pragma mark - Table view Data Source
 
@@ -61,9 +80,19 @@
     return 1;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Upcoming Events";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    if ([self.queryArray count] == 0) {
+        return 1;
+    } else {
+        return [self.queryArray count];
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,27 +100,20 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Boo";
-    
+    if (!self.queryArray) {
+        
+        cell.textLabel.text = @"Needs Refreshing.";
+
+    } else {
+        
+        PFObject *event = [self.queryArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = [event objectForKey:@"eventTitle"];
+        cell.textLabel.textColor = [UIColor redColor];
+
+        }
+
     return cell;
-    
 }
 
-- (void)creatRefreshControl
-{
-    self.refreshControl = [UIRefreshControl new];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Update."];
-    self.refreshControl.tintColor = [UIColor blueColor];
-    [self.refreshControl addTarget:self.tableView action:@selector(updateEventsTable) forControlEvents:UIControlEventValueChanged];
-    
-    [self.tableView addSubview:self.refreshControl];
-    [self.refreshControl beginRefreshing];
-}
-
-- (void)updateEventsTable
-{
-    [self.refreshControl endRefreshing];
-    NSLog(@"Events!");
-}
 
 @end

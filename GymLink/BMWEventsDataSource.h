@@ -11,12 +11,9 @@
 @interface BMWEventsDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray *queryArray;
+@property (nonatomic, strong) __block NSArray *queryArray;
+@property (nonatomic, strong) NSString *creationDate;
 
 + (BMWEventsDataSource *)sharedDataSource;
-
-- (void)creatRefreshControl;
-- (void)updateEventsTable;
 
 @end

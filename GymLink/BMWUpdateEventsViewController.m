@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSString *details;
 
 @property (strong, nonatomic) NSMutableDictionary *singleEventDictionary;
+
+@property (strong, nonatomic) PFObject *freshEvent;
 @property (strong, nonatomic) NSMutableArray *arrayOfEvents;
 
 @end
@@ -92,12 +94,22 @@
     
     [optionsSheet showInView:self.view];
     
-    self.singleEventDictionary = [NSMutableDictionary new];
-    [self.singleEventDictionary setObject:self.eventTitle forKey:TITLE_KEY];
-    [self.singleEventDictionary setObject:self.onDay forKey:ON_DAY_KEY];
-    [self.singleEventDictionary setObject:self.details forKey:DETAILS_KEY];
+    // Create new PFObject for entered event
+    self.freshEvent = [PFObject objectWithClassName:@"newEvent"];
+    [self.freshEvent setObject:self.eventTitle forKey:TITLE_KEY];
+    [self.freshEvent setObject:self.onDay forKey:ON_DAY_KEY];
+    [self.freshEvent setObject:self.details forKey:DETAILS_KEY];
     
-    NSLog(@"Dict: %@", self.singleEventDictionary);
+//    self.singleEventDictionary = [NSMutableDictionary new];
+//    [self.singleEventDictionary setObject:self.eventTitle forKey:TITLE_KEY];
+//    [self.singleEventDictionary setObject:self.onDay forKey:ON_DAY_KEY];
+//    [self.singleEventDictionary setObject:self.details forKey:DETAILS_KEY];
+    
+    NSLog(@"Event: %@", self.freshEvent);
+    
+    if (!self.arrayOfEvents) {
+        self.arrayOfEvents = [NSMutableArray new];
+    }
     
 }
 
@@ -107,11 +119,7 @@
 {
     if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Add another"]) {
         
-        if (!self.arrayOfEvents) {
-            self.arrayOfEvents = [NSMutableArray new];
-        }
-        
-        [self.arrayOfEvents addObject:self.singleEventDictionary]; // Update array containing events
+        [self.arrayOfEvents addObject:self.freshEvent]; // Update array containing events
         
         self.eventTitleField.text = @"";
         self.onDayField.text = @"";
@@ -125,7 +133,7 @@
     
     if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Finish"]) {
         
-        [self.arrayOfEvents addObject:self.singleEventDictionary];
+        [self.arrayOfEvents addObject:self.freshEvent];
         
         PFObject *packagedEvents = [PFObject objectWithClassName:PF_CLASS_NAME];
         packagedEvents[@"eventsArray"] = self.arrayOfEvents; //Package array of added events into single PFObject

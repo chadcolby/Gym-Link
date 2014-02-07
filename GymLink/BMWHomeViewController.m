@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
+@property (strong, nonatomic) UITableViewController *tableViewController;
 
 @end
 
@@ -31,7 +32,11 @@
     self.navigationItem.hidesBackButton = YES;
     self.userPicture.backgroundColor = [UIColor blackColor];
     
-    [self.eventsTableDataSource creatRefreshControl];
+    self.tableViewController = [UITableViewController new];
+    self.tableViewController.tableView = self.eventsTableView;
+    [self addChildViewController:self.tableViewController];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queryFinished:) name:@"refreshComplete" object:nil];
     
 }
 
@@ -39,8 +44,14 @@
 {
     [super viewWillAppear:animated];
     
-    [self.eventsTableDataSource creatRefreshControl];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self createRefreshControl];
+
 }
 
 - (void)checkCurrentUser
@@ -74,5 +85,33 @@
     }
 }
 
+- (void)createRefreshControl
+{
+    self.tableViewController.refreshControl = [UIRefreshControl new];
+    [self.tableViewController.refreshControl addTarget:self action:@selector(updateEventsTable) forControlEvents:UIControlEventValueChanged];
+    
+}
+
+- (void)updateEventsTable
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequested" object:self];
+    
+}
+
+- (void)queryFinished:(NSNotification *)notification
+{
+    NSLog(@"This is what was returned: %@", [notification name]);
+    [self.tableViewController.refreshControl endRefreshing];
+    [self.tableViewController.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *event = [self.eventsTableDataSource.self.queryArray objectAtIndex:indexPath.row];
+    NSString *detailsString = [[NSString alloc] initWithString:[event objectForKey:@"detailsKey"]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Details" message:detailsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+    [alert show];
+    
+}
 
 @end
