@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "BMWEventsDataSource.h"
 
-@interface BMWHomeViewController : UIViewController
+@interface BMWHomeViewController : UIViewController <UITableViewDelegate>
 
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, weak) BMWEventsDataSource *eventsTableDataSource;
+
+- (IBAction)signOutPushed:(id)sender;
+
 
 @end

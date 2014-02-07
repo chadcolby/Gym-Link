@@ -10,27 +10,36 @@
 
 @interface BMWHomeViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *userPicture;
+
 @end
 
 @implementation BMWHomeViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self checkCurrentUser];
-    self.view.backgroundColor = [UIColor blueColor];
-    self.navigationItem.hidesBackButton = YES;
+    self.eventsTableView.delegate = self;
+    self.eventsTableDataSource = [BMWEventsDataSource sharedDataSource];
+    self.eventsTableDataSource.tableView = self.eventsTableView;
+    self.eventsTableView.dataSource = self.eventsTableDataSource;
     
+    
+    [self checkCurrentUser];
+    self.navigationItem.hidesBackButton = YES;
+    self.userPicture.backgroundColor = [UIColor blackColor];
+    
+    [self.eventsTableDataSource creatRefreshControl];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.eventsTableDataSource creatRefreshControl];
     
 }
 
@@ -38,7 +47,7 @@
 {
     self.currentUser = [PFUser currentUser];
     if (self.currentUser) {
-        NSLog(@"Current User: %@", self.currentUser);
+        NSLog(@"Current User: %@", self.currentUser.username);
     } else {
         [self performSegueWithIdentifier:@"pushToSignIn" sender:self];
     }
@@ -50,6 +59,12 @@
 
 }
 
+#pragma mark - IBActions
+
+- (IBAction)signOutPushed:(id)sender {
+    [self performSegueWithIdentifier:@"pushToSignIn" sender:self];
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -58,5 +73,6 @@
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
 }
+
 
 @end

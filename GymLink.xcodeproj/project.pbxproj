@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8D44279918A426960093F273 /* BMWSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D44279818A426960093F273 /* BMWSignInViewController.m */; };
 		8D44279C18A42AC80093F273 /* BMWNewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D44279B18A42AC80093F273 /* BMWNewUserViewController.m */; };
+		8D4427A118A438F60093F273 /* BMWUpdateEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4427A018A438F60093F273 /* BMWUpdateEventsViewController.m */; };
+		8D4427A418A439380093F273 /* BMWEventsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4427A318A439380093F273 /* BMWEventsDataSource.m */; };
+		8D4427AA18A4413C0093F273 /* BMWMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4427A918A4413C0093F273 /* BMWMessagesViewController.m */; };
 		8D59BCBF18A41D7E00867495 /* BMWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */; };
 		8D87CE5518A4174300B90378 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5418A4174300B90378 /* Foundation.framework */; };
 		8D87CE5718A4174300B90378 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D87CE5618A4174300B90378 /* CoreGraphics.framework */; };
@@ -49,6 +52,12 @@
 		8D44279818A426960093F273 /* BMWSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMWSignInViewController.m; path = ../BMWSignInViewController.m; sourceTree = "<group>"; };
 		8D44279A18A42AC80093F273 /* BMWNewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWNewUserViewController.h; sourceTree = "<group>"; };
 		8D44279B18A42AC80093F273 /* BMWNewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWNewUserViewController.m; sourceTree = "<group>"; };
+		8D44279F18A438F60093F273 /* BMWUpdateEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWUpdateEventsViewController.h; sourceTree = "<group>"; };
+		8D4427A018A438F60093F273 /* BMWUpdateEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWUpdateEventsViewController.m; sourceTree = "<group>"; };
+		8D4427A218A439380093F273 /* BMWEventsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWEventsDataSource.h; sourceTree = "<group>"; };
+		8D4427A318A439380093F273 /* BMWEventsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWEventsDataSource.m; sourceTree = "<group>"; };
+		8D4427A818A4413C0093F273 /* BMWMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWMessagesViewController.h; sourceTree = "<group>"; };
+		8D4427A918A4413C0093F273 /* BMWMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWMessagesViewController.m; sourceTree = "<group>"; };
 		8D59BCBD18A41D7E00867495 /* BMWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWHomeViewController.h; sourceTree = "<group>"; };
 		8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWHomeViewController.m; sourceTree = "<group>"; };
 		8D87CE5118A4174300B90378 /* GymLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +179,12 @@
 				8D87CE6618A4174300B90378 /* Main.storyboard */,
 				8D59BCBD18A41D7E00867495 /* BMWHomeViewController.h */,
 				8D59BCBE18A41D7E00867495 /* BMWHomeViewController.m */,
+				8D4427A818A4413C0093F273 /* BMWMessagesViewController.h */,
+				8D4427A918A4413C0093F273 /* BMWMessagesViewController.m */,
+				8D44279F18A438F60093F273 /* BMWUpdateEventsViewController.h */,
+				8D4427A018A438F60093F273 /* BMWUpdateEventsViewController.m */,
+				8D4427A218A439380093F273 /* BMWEventsDataSource.h */,
+				8D4427A318A439380093F273 /* BMWEventsDataSource.m */,
 				8D44279E18A433780093F273 /* Sign In/Up */,
 				8D87CE6F18A4174300B90378 /* Images.xcassets */,
 				8D87CE5B18A4174300B90378 /* Supporting Files */,
@@ -305,6 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D59BCBF18A41D7E00867495 /* BMWHomeViewController.m in Sources */,
+				8D4427A418A439380093F273 /* BMWEventsDataSource.m in Sources */,
+				8D4427A118A438F60093F273 /* BMWUpdateEventsViewController.m in Sources */,
+				8D4427AA18A4413C0093F273 /* BMWMessagesViewController.m in Sources */,
 				8D44279918A426960093F273 /* BMWSignInViewController.m in Sources */,
 				8D87CE6118A4174300B90378 /* main.m in Sources */,
 				8D44279C18A42AC80093F273 /* BMWNewUserViewController.m in Sources */,
